@@ -1,0 +1,25 @@
+{
+  "name": "facebook-private-cleaner",
+  "version": "0.0.1",
+  "private": true,
+  "description": "PoC Chrome/Edge extension that scans the Facebook Activity Log and classifies post audiences; V1A/V1B act on one Only-me post, V2A/V2B move a hand-picked batch of up to 20 Only-me posts to Trash; V3A loads older Activity Log entries by scrolling (read-only); V3B plans a cleanup queue of max-20 batches run one at a time with explicit approval; V4 runs the remaining queue batches sequentially after one approval, stopping at the first anomaly; V5 chains them into a guided cleanup (load, scan, plan, one final approval, run).",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json",
+    "build": "npm run typecheck && vite build && vite build --config vite.content.config.ts",
+    "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\""
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.3.0",
+    "@types/node": "^22.20.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "typescript": "~5.9",
+    "vite": "^7.3.6"
+  }
+}

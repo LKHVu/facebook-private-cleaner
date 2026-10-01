@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Facebook Private Cleaner",
+  "version": "0.0.1",
+  "description": "Proof of concept: scans the Facebook Activity Log, loads older entries by scrolling, classifies post audiences, and can move one, a hand-picked batch of up to 20, or a planned queue of such batches (one at a time, each confirmed, or a run of the remaining batches approved once), Only-me posts to Trash after confirmation. A guided mode chains these steps behind one final approval.",
+  "action": {
+    "default_title": "Facebook Private Cleaner",
+    "default_popup": "popup/index.html"
+  },
+  "background": {
+    "service_worker": "background/serviceWorker.js",
+    "type": "module"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.facebook.com/*"
+  ]
+}
